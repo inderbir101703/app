@@ -7,7 +7,7 @@ router.get('/profile', passport.checkAuthentication,controller.profile);
 router. post('/signup',controller.signuprequest);
 
 router.get('/signin',controller.signin);
-
+router.get('/signout',controller.signout);
 router.post('/create-session',passport.authenticate(
     'local',
     {failureRedirect:'/user/signin'}),controller.createSession);

@@ -1,6 +1,9 @@
+const express=require('express');
+const router=express.Router();
+const passport = require('passport');
 module.exports.home=function(req,res)
 {
-   res.send('<h1>china ki mad3d hbrose</h1>'); 
+   return res.render('home'); 
 }
 
  

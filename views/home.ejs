@@ -1,3 +1,13 @@
 
 <link  href="/css/profile.css" rel="stylesheet">
-<p>fgvzdfdfzxz</p>
+<ul>
+    <%if(locals.user){%>
+    <li><%=user.name%></li>
+    <li><%=user.email%></li>
+    <li><a href="user/signout">Sign out</a></li>
+<%}
+else{%>
+  <li><a href="user/signin">sign in</a></li>
+</ul>
+<%}%>
+<p>fgvzdfdfzxz</p> 
