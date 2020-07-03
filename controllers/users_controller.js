@@ -1,4 +1,4 @@
-const User=require('../models/contact');
+const User=require('../models/User');
 const passport=require('passport');
 module.exports.profile=function(req,res){
     res.render('users_profile');
@@ -68,3 +68,10 @@ module.exports.createSession = function(req, res){
            return res.redirect('/');
 
     }
+
+
+    module.exports.addpost=function(req,res){
+        console.log(req.body.content);
+        console.log(locals.user.name);
+        return res.send('<h1>50 likes</h1>');  
+      }

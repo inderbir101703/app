@@ -7,6 +7,7 @@ header{
     background-color: cornflowerblue;
     height:10%;
     display: flex;
+    padding: 0px;
     flex-direction: row;
    justify-content:center ;
    align-items: center;
@@ -22,4 +23,17 @@ footer{
     flex-direction: row;
    justify-content:center ;
    align-items: center;   
+}
+header ul{
+    
+    border: 2px red solid;
+    position: absolute;
+    right:0px;
+    margin: 0px;
+    display: flex;
+    flex-direction: row;
+
+}
+header ul li{
+    margin: 15px;
 }

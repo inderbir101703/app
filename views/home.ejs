@@ -1,13 +1,9 @@
 
 <link  href="/css/profile.css" rel="stylesheet">
-<ul>
-    <%if(locals.user){%>
-    <li><%=user.name%></li>
-    <li><%=user.email%></li>
-    <li><a href="user/signout">Sign out</a></li>
-<%}
-else{%>
-  <li><a href="user/signin">sign in</a></li>
-</ul>
-<%}%>
-<p>fgvzdfdfzxz</p> 
+<section id="feed-posts">
+    <h4>Posts</h4>
+   <form action="/post/add" id="new-post-form" method="POST">
+   <textarea name="content" col="50" rows="5"></textarea> 
+   <input type="submit">
+   </form> 
+</section>
