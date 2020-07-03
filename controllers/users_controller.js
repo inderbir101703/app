@@ -1,14 +1,29 @@
 const User=require('../models/contact');
+const passport=require('passport');
 module.exports.profile=function(req,res){
     res.render('users_profile');
 }
 module.exports.signup=function(req,res){
-   res.render('user_sign_up',{
+    if(req.isAuthenticated())
+   {
+    return  res.redirect('profile');
+   }
+   
+   
+    res.render('user_sign_up',{
        title:"signup page"
    }); 
 }
 
 module.exports.signin=function(req,res){
+
+    if(req.isAuthenticated())
+    {
+     
+     return res.redirect('profile');
+      
+    }
+
     res.render('user_sign_in',{
         title:"signin page"
     }); 
@@ -33,20 +48,19 @@ User.findOne({email: req.body.email},function(err,user){
       return;
 
      }
-    return res.render('user_sign_in',{
-        title:"signin"
-    })
+     return res.redirect('/users/sign-in');
     })}
-else{
+else{ 
    return res.redirect('back'); 
 }
 
-
+ 
 });}
 
 
 module.exports.createSession = function(req, res){
-    // TODO later
-}
+    // TODO later 
+    return res.redirect('/');
+       }
 
     
