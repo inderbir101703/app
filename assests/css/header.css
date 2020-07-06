@@ -1,6 +1,8 @@
 body{
  background-color: pink;   
  margin: 0px;
+ 
+ 
 }
 header{
     color:brown;
@@ -14,8 +16,8 @@ header{
 }
 footer{
     color:gray;
-    position: absolute;
-    bottom: 0px;
+  position: static;
+  bottom: 0px;
     background-color: cornflowerblue;
     height:10%;
     width: 100%;

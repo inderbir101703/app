@@ -1,8 +1,33 @@
 const User=require('../models/User');
 const passport=require('passport');
+
+
 module.exports.profile=function(req,res){
-    res.render('users_profile');
+    User.findById(req.params.id,function(er,userpro){
+
+        res.render('users_profile',{ 
+        user_pro:userpro
+         } );
+    })
+    
+  
 }
+
+module.exports.update=function(req,res){
+if(req.user.id==req.params.id)
+{
+User.findByIdAndUpdate(req.params.id,{name:req.body.name,email:req.body.email},function(err,user){
+   return res.redirect('back'); 
+})
+}
+else
+{
+ return res.status(401).send('Unauthorised');   
+}
+}
+
+
+
 module.exports.signup=function(req,res){
     if(req.isAuthenticated())
    {
@@ -75,3 +100,4 @@ module.exports.createSession = function(req, res){
         console.log(locals.user.name);
         return res.send('<h1>50 likes</h1>');  
       }
+      

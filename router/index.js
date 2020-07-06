@@ -14,7 +14,7 @@ const passportlocal=require('../config/passport-local-strategy');
 
 router.get('/',controller.home);
 router.use('/user',require('./user'));
-
+router.use('/comment',require('./comments'));
 router.use('/experiment',require('./experiment'));
 router.use('/post',require('./post'));
 module.exports=router;

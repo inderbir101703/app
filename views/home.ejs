@@ -2,8 +2,20 @@
 <link  href="/css/profile.css" rel="stylesheet">
 <section id="feed-posts">
     <h4>Posts</h4>
+    <%if(locals.user){%>
    <form action="/post/add" id="new-post-form" method="POST">
    <textarea name="content" col="50" rows="5"></textarea> 
    <input type="submit">
    </form> 
+<%}%>
+<div id="post-list_container">
+   <ul>
+<%for(post of posts){%>
+    <%- include('_post'); %>
+<%}%>
+<%for(u of users){%>
+  <a href="user/profile/<%=u.id%>"> <%=u.name %>
+    <%}%></a> 
+</ul>
+</div>
 </section>
