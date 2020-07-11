@@ -4,18 +4,23 @@
     <h4>Posts</h4>
     <%if(locals.user){%>
    <form action="/post/add" id="new-post-form" method="POST">
-   <textarea name="content" col="50" rows="5"></textarea> 
+   <textarea name="content" id="post-input" col="50" rows="5"></textarea> 
    <input type="submit">
    </form> 
 <%}%>
+
 <div id="post-list_container">
-   <ul>
+<ul>
+  <li>
 <%for(post of posts){%>
     <%- include('_post'); %>
 <%}%>
 <%for(u of users){%>
   <a href="user/profile/<%=u.id%>"> <%=u.name %>
-    <%}%></a> 
+    <%}%></a>
+  </li> 
 </ul>
 </div>
 </section>
+<script src="/js/home_comments.js"></script>
+<script src="/js/home_posts.js"></script>

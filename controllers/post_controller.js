@@ -1,20 +1,26 @@
 const User=require('../models/User');
 const Post =require('../models/post');
 const Comment=require('../models/comment');
+const { readyState } = require('../config/mongoose');
 
 
 
 module.exports.addpost= async function(req,res){
   try{
   
-    await Post.create({
+   let post=await Post.create({
       content:req.body.content,
       user:req.user
-    },function(err,post){
-     if(err)
-     console.log("error"); 
-    })
-  
+    });
+    if(req.xhr){
+      return res.status(200).json({
+        data:{
+          post:post
+        },
+        message:"post created"
+      });
+    }
+  req.flash('success','Post published');
     return res.redirect('back');
 
   }
@@ -55,11 +61,24 @@ module.exports.displayposts=function(req,res){
             if(post.user ==req.user.id){
               post.remove();
              await  Comment.deleteMany({post:req.params.id})  ; 
-               return res.redirect('back');  
+             if(req.xhr){
+              
+               return res.status(200).json({
+                 data: {
+                   post_id:req.params.id
+                 },
+                 message:"Post deleted successfully"
+               });
+             }
+             
+             
+             req.flash('success','Post and associated deleted'); 
+             return res.redirect('back');  
             
            }
            else
            {
+            req.flash('error','u cant delete thisPost ');
             return res.redirect('back'); 
            };
 
@@ -68,7 +87,7 @@ module.exports.displayposts=function(req,res){
           }
          catch(err)
          {
-           console.log('errror',err);
+          req.flash('error',err);
            return;
          }     
 

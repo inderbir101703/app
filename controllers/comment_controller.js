@@ -15,10 +15,17 @@ module.exports.comment= async function(req,res){
         user:req.user._id,
         post:req.body.post
       });
-      
-    
+
             post.comments.push(comment);
             post.save();
+            if(req.xhr){
+              return res.status(200).json({
+                data:{
+                  comment:comment
+                },
+                message:"comment created"
+              });}
+          
           return res.redirect('/');
       
     }
@@ -29,25 +36,50 @@ module.exports.comment= async function(req,res){
   }
   }
 
-module.exports.deletecomment=function(req,res){
-     Comment.findById(req.params.id,function(err,comment){
+module.exports.deletecomment=async function(req,res){
+     
+  try{
+  
+    let comment=await Comment.findById(req.params.id)
        
-      Post.findById(comment.post,function(err,post){
-        if(err){
-          console.log("error while deleting");
-                return;
-        }  
+      let post=Post.findById(comment.post);
+      
+      
+      
+      
         if((comment.user ==req.user.id)||(post.user==req.user.id)){  
           comment.remove();
-          Post.findByIdAndUpdate(comment.post,{$pull:{comments:req.params.id}},function(err,posst){
-           return res.redirect('back'); 
-          })
-        
+          Post.findByIdAndUpdate(comment.post,{$pull:{comments:req.params.id}});
 
+           
+      if (req.xhr){
+        return res.status(200).json({
+            data: {
+                comment_id: req.params.id
+            },
+            message: "comment deleted"
+        });
+    }
+
+
+    req.flash('success', 'Comment deleted!');
+            return res.redirect('back');
        }
        else{
+        req.flash('error', 'Unauthorized');
         return res.redirect('back');
        }
-      })
-      })}
       
+      
+  }
+catch(err){
+  req.flash('error', err);
+  return;
+}
+}
+      
+
+
+
+
+

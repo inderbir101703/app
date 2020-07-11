@@ -4,6 +4,10 @@ const app=express();
 const db=require('./config/mongoose');
 const sassMiddleware =require('node-sass-middleware');
 const expressLayouts=require('express-ejs-layouts');
+const flash=require('connect-flash');
+const customware=require('./config/middleware');
+
+
 app.use(express.urlencoded());
 app.use(express.static('./assests'));
 app.use(expressLayouts);
@@ -16,6 +20,7 @@ app.set('layout extractScripts',true);
 const session=require('express-session');
 const passport=require('passport');
 const passportlocal=require('./config/passport-local-strategy');
+
 
 const mongostore = require('connect-mongo')(session);
 app.use(sassMiddleware({
@@ -43,7 +48,11 @@ store:new mongostore(
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(passport.setAuthenticatedUser);
+app.use(flash());
+app.use(customware.setflash);
 app.use('/',require('./router'));
+
+
 
 app.listen(port,function(err){
 if(err) 

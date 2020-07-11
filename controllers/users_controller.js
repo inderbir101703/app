@@ -85,11 +85,13 @@ else{
 
 module.exports.createSession = function(req, res){
     // TODO later 
+    req.flash('success','Logged in succesfully');//have to create a middleware so that we can pass to page
     return res.redirect('/');
        }
 
     module.exports.signout=function(req,res){
            req.logout();
+           req.flash('success','Logged out succesfully');
            return res.redirect('/');
 
     }
