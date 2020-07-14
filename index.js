@@ -6,7 +6,8 @@ const sassMiddleware =require('node-sass-middleware');
 const expressLayouts=require('express-ejs-layouts');
 const flash=require('connect-flash');
 const customware=require('./config/middleware');
-
+//make uploads path available to browser
+app.use('/uploads',express.static(__dirname + '/uploads'));
 
 app.use(express.urlencoded());
 app.use(express.static('./assests'));
@@ -20,6 +21,7 @@ app.set('layout extractScripts',true);
 const session=require('express-session');
 const passport=require('passport');
 const passportlocal=require('./config/passport-local-strategy');
+const passportjwt=require('./config/passport-jwt-strategy');
 
 
 const mongostore = require('connect-mongo')(session);

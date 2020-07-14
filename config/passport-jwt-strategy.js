@@ -1,0 +1,22 @@
+const passport=require('passport');
+const jwtstrategy=require('passport-jwt').Strategy;//.Strategy helps us to envovle strategy from header
+const ExtractJWT=require('passport-jwt').ExtractJwt;
+const User = require('../models/User');
+
+let opts={
+    jwtFromRequest:ExtractJWT.fromAuthHeaderAsBearerToken(),
+    secretOrKey:'codeial'  //key of enc and decryption
+}
+passport.use(new jwtstrategy(opts,function(jwtPayLoad,done){
+ User.findById(jwtPayLoad._id,function(err,user){
+     if(err)
+     {console.log("error in user jwt");return;}
+      if(user){
+          return done(null,user);//means err was null
+      }
+      else{
+          return done(null,false);
+      }
+    })   
+}));
+module.exports=passport;

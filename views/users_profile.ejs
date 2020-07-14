@@ -1,11 +1,15 @@
 <link type="stylesheet" href="/css/layout.css" rel="stylesheet">
+<img src="../../<%= user.avatar %>" alt="<%=user.name%>" width=100>
 <p>yaara o yaara profile</p>
-
+<p><%=user.avatar%></p>
 <%if(user.id==user_pro.id)
-{%>
-    <form action="../update/<%=user_pro.id%>" method="POST">
+{
+    %>
+    
+    <form action="../update/<%=user_pro.id%>" enctype="multipart/form-data" method="POST">
 <input type="text"  name="name" required>
 <input type="email"  name="email" required>
+<input type="file" name="avatar" placeholder="profile picture">
 <button type="submit">update</button>
 </form>
 <%}

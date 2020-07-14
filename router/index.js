@@ -11,7 +11,7 @@ const passportlocal=require('../config/passport-local-strategy');
 
 
 
-
+router.use('/api',require('./api'));
 router.get('/',controller.home);
 router.use('/user',require('./user'));
 router.use('/comment',require('./comments'));

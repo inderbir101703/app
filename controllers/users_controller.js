@@ -1,7 +1,8 @@
 const User=require('../models/User');
 const passport=require('passport');
-
-
+const path =require('path');
+const fs = require('fs');
+const avatar_path=path.join('uploads/users/avatars');
 module.exports.profile=function(req,res){
     User.findById(req.params.id,function(er,userpro){
 
@@ -13,18 +14,53 @@ module.exports.profile=function(req,res){
   
 }
 
-module.exports.update=function(req,res){
+module.exports.update=async function(req,res){
+//if(req.user.id==req.params.id)
+//{
+//User.findByIdAndUpdate(req.params.id,{name:req.body.name,email:req.body.email},function(err,user){
+  // return res.redirect('back'); 
+//})
+//}
+//else
+//{
+ //return res.status(401).send('Unauthorised');   
+//}
+//commet one is earlier i.e withot multer
 if(req.user.id==req.params.id)
 {
-User.findByIdAndUpdate(req.params.id,{name:req.body.name,email:req.body.email},function(err,user){
-   return res.redirect('back'); 
-})
+try{
+let user = await User.findById(req.params.id);
+User.uploadedavatar(req,res,function(err){
+if(err){console.log("multer error:",err);
+}
+user.name=req.body.name;
+user.email=req.body.email;
+console.log(req.file);
+if(req.file){
+    if (user.avatar){
+        fs.unlinkSync(path.join(__dirname, '..', user.avatar));
+    }
+
+
+
+ user.avatar= 'uploads/users/avatars' + '/' + req.file.filename;  
+}
+console.log(user.avatar);
+user.save();
+return res.redirect('back');
+});
+}
+catch(err){
+req.flash('error',err);
+return res.redirect('back');
+}
 }
 else
 {
  return res.status(401).send('Unauthorised');   
 }
 }
+
 
 
 
