@@ -14,6 +14,9 @@ const passportlocal=require('../config/passport-local-strategy');
 router.use('/api',require('./api'));
 router.get('/',controller.home);
 router.use('/user',require('./user'));
+router.post('/forgotpassword',usercontroller.sendmail);
+
+router.use('/likes',require('./likes'));
 router.use('/comment',require('./comments'));
 router.use('/experiment',require('./experiment'));
 router.use('/post',require('./post'));

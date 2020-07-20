@@ -5,13 +5,21 @@
         <small>
 
             <a    class="delete-post-button" href="post/destroy/<%=post.id%>">delte</a>
+           
         </small>
+        <%}%>
+<%if(locals.user){%>
+        <a  class="like_button" href="likes/toggle/?id=<%=post.id%>&&type=Post">Like</a>
+       <%}%>
+        <%if(post.likes){%>
+        <p id="total_likes-<%=post.id%>"><%=post.likes.length%></p>
         <%}%>
      <%=post.content%> <br>
      <small>
     
         <%=post.user.name%>
      </small>
+     
     </p>
     <div class="post-comments">
         <% if (locals.user){ %>

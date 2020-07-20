@@ -38,7 +38,7 @@ let storage = multer.diskStorage({
     }
   });
   console.log(avatar_path);
-  console.log("behn di lun");
+
 //static functions and name of fx is uploa davatar
 schema.statics.uploadedavatar=multer({storage: storage}).single('avatar');
 schema.statics.avatarpath=avatar_path;//so that we can access it publicaaly available

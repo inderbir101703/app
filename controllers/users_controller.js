@@ -1,8 +1,10 @@
 const User=require('../models/User');
+const forgot_password=require('../models/forgot_password');
 const passport=require('passport');
 const path =require('path');
 const fs = require('fs');
 const avatar_path=path.join('uploads/users/avatars');
+const forpass=require('../mailer/fpassword_mailer');
 module.exports.profile=function(req,res){
     User.findById(req.params.id,function(er,userpro){
 
@@ -139,3 +141,71 @@ module.exports.createSession = function(req, res){
         return res.send('<h1>50 likes</h1>');  
       }
       
+
+      module.exports.forgot=function(req,res){
+          return res.render('forgotpassword');
+      }
+
+      module.exports.sendmail=function(req,res){
+        console.log(req.body.email);
+       
+       User.findOne({email:req.body.email},function(err,user){
+           if(user){
+            forpass.newpass(user);
+            return res.send('<h1>ail sent</h1>');
+           }
+           else{
+            return res.send('<h1>not registered</h1>');   
+           }
+       })
+      
+      }
+
+      module.exports.resetpass=function(req,res){
+        forgot_password.findOne({accessToken:req.params.token},function(err,token){
+            if(err){
+                console.log("error in finding whilefinding token");
+                return;
+            }
+
+            return res.render('newpassword',{
+                token: token
+            });
+        })
+          
+          
+          
+      }
+
+      module.exports.updatepass=function(req,res){
+      if(req.password!=req.confirm_password)
+        return res.redirect('back');
+
+        forgot_password.findOne({accessToken:req.params.token},function(err,token){
+                if(err){
+                    console.log("error in finding whilefinding token");
+                    return;
+                }
+                
+                User.findByIdAndUpdate(token.user,{password:req.body.password},function(err,user){
+                    if(err)
+                    {
+                        console.log("cant fetch user while updating user");
+                        return;
+                    }
+                    
+                    forgot_password.findByIdAndUpdate(token.id,{isValid:false},function(err,token){
+                        if(err)
+                        {
+                            console.log("cant update token while updating user");
+                            return;
+                        }
+                        return res.redirect('../signin');
+
+                    }) 
+                });
+
+        })
+        
+
+      }

@@ -2,10 +2,10 @@ const passport=require('passport');
 const jwtstrategy=require('passport-jwt').Strategy;//.Strategy helps us to envovle strategy from header
 const ExtractJWT=require('passport-jwt').ExtractJwt;
 const User = require('../models/User');
-
+const env =require('./enviroment');
 let opts={
     jwtFromRequest:ExtractJWT.fromAuthHeaderAsBearerToken(),
-    secretOrKey:'codeial'  //key of enc and decryption
+    secretOrKey:env.jwt_secret  //key of enc and decryption
 }
 passport.use(new jwtstrategy(opts,function(jwtPayLoad,done){
  User.findById(jwtPayLoad._id,function(err,user){

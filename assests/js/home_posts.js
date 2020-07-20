@@ -82,7 +82,7 @@
             type:'get',
             url: $(deleteLink).prop('href'),  //extrctin link
             success:function(data){ 
-               console.log("was here2");
+              
                 $(`#post-${data.data.post_id}`).remove();
             },error:function(error){
                console.log(error.resposeText); 

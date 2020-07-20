@@ -10,7 +10,11 @@ const commentSchema=new mongoose.Schema(
       post:{
          type:mongoose.Schema.Types.ObjectId,
          ref:'Post' 
-      }
+      },//likes is a dyamic reference
+      likes:[{
+         type:mongoose.Schema.Types.ObjectId,
+         ref:'Like'
+       }]
 
   },{
      timestamps:true 
