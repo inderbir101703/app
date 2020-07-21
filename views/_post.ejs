@@ -1,4 +1,4 @@
-<li id="post-<%=post._id%>">
+<li id="post-<%=post._id%>" class="posts">
     <p> 
        <% if((locals.user) && (locals.user.id==post.user.id)){ 
            %>
@@ -9,15 +9,16 @@
         </small>
         <%}%>
 <%if(locals.user){%>
+    
         <a  class="like_button" href="likes/toggle/?id=<%=post.id%>&&type=Post">Like</a>
-       <%}%>
+        <%}%>
         <%if(post.likes){%>
-        <p id="total_likes-<%=post.id%>"><%=post.likes.length%></p>
+        <p id="total_likes-<%=post.id%>"><%=post.likes.length%> Likes</p>
         <%}%>
      <%=post.content%> <br>
      <small>
     
-        <%=post.user.name%>
+       By:<%=post.user.name%>
      </small>
      
     </p>
@@ -42,6 +43,6 @@
        </div>
        </div>
     </li>
-    <script>
-        
-    </script>
+   <script src="js/likes.js"></script>
+  
+  

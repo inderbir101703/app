@@ -1,12 +1,12 @@
 body{
-  background-color: pink;   
+  background-color: lightgoldenrodyellow;   
   margin: 0px;
   
   
  }
  header{
      color:brown;
-     background-color: cornflowerblue;
+     background-color: gray;
      height:10%;
      display: flex;
      padding: 0px;
@@ -26,9 +26,15 @@ body{
     justify-content:center ;
     align-items: center;   
  }
+ a{
+   text-decoration: underline;
+   color:black;
+   font-family:sans-serif;
+ }
  header ul{
      
-     border: 2px red solid;
+     
+     margin-left: 10px;
      position: absolute;
      right:0px;
      margin: 0px;
@@ -37,6 +43,13 @@ body{
  
  }
  header ul li{
+  text-decoration:underline;
      margin: 15px;
  }
- 
+a[href="forgotpassword"] , a[href="/user/auth/google"]{
+  position:relative;
+  left:35%;
+}
+
+
+

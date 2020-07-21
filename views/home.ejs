@@ -1,28 +1,43 @@
 
 <link  href="/css/profile.css" rel="stylesheet">
 <section id="feed-posts">
-  <img src="uploads/users/avatars/avatar-1594538340336.png">
-    <h4>Posts</h4>
+  
+    
     <%if(locals.user){%>
-   <form action="/post/add" id="new-post-form" method="POST">
-   <textarea name="content" id="post-input" col="50" rows="5"></textarea> 
+      
+   <form action="./post/add" id="new-post-form" method="POST">
+    <h3>Add New Post</h3>
+   <textarea name="content" id="post-input" col="50" rows="5" placeholder="Add new Post"></textarea> 
    <input type="submit">
    </form> 
 <%}%>
-
-<div id="post-list_container">
+<h2>Posts</h2>
+    <h2 id="user_heading">Users</h2>
+<div id="post-list_container1">
+  <div id="post-display">
 <ul>
   <li>
+    
 <%for(post of posts){%>
     <%- include('_post'); %>
-<%}%>
-<%for(u of users){%>
-  <a href="user/profile/<%=u.id%>"> <%=u.name %>
-    <%}%></a>
-  </li> 
+<%}%></li>
 </ul>
 </div>
+<div id="user-display">
+<ul>
+<%for(u of users){%>
+  <li><div><a href="user/profile/<%=u.id%>"> <%=u.name %>
+    <%}%></a></div>
+  </li> 
+
+</ul>
+</div>
+</div>
 </section>
-<script src="/js/home_comments.js"></script>
-<script src="/js/home_posts.js"></script>
-<script src="/js/likes.js"></script>
+<script src="js/home_comments.js" ></script>
+<script src="js/home_posts.js"></script>
+
+<!-- CHANGE :: import the script file for toggle likes, also run it over for the already present posts and comments on the page -->
+<script src="js/likes.js"></script>
+
+

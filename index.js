@@ -10,6 +10,7 @@ const logger=require('morgan');
 const sassMiddleware =require('node-sass-middleware');
 const expressLayouts=require('express-ejs-layouts');
 const flash=require('connect-flash');
+
 const customware=require('./config/middleware');
 const passportgoogle=require('./config/passport-google-oauth2');
 const path=require('path');
@@ -19,6 +20,7 @@ app.use('/uploads',express.static(__dirname + '/uploads'));
 
 
 app.use(express.urlencoded());
+
 app.use(express.static(env.assest_path));
 
 app.use(logger(env.morgan.mode,env.morgan.options));

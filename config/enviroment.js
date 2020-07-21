@@ -16,7 +16,7 @@ path: logDirectory
 
 const development={
     name:'development',
-assest_path:'./assests',
+assest_path:'./assets',
 session_cookie_key:'eD0ChpiZsQ7o8mRrX2FmCcoNFl6cftdZ',
 db:'codeial_development',
 smtp:{

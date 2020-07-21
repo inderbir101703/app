@@ -5,12 +5,14 @@
 {//method to submit for post by ajax
   
    let createPost=function(){
+     
       let newpostform=$('#new-post-form') ;
       newpostform.submit(function(e){
+         console.log("wesde")
          let as="";
-         
+        
           e.preventDefault();
-         
+        
       $.ajax({
          type:  'post',
          url:   '/post/add',
@@ -18,7 +20,7 @@
          success: function(data){
             let newpost=newPostDom(data.data.post);
                
-             $('#post-list_container').prepend(newpost);
+             $('#post-list_container1>#post-display>ul>li').prepend(newpost);
              deletePost(' .delete-post-button', newpost);
             new postcomment(data.data.post._id);
             },error:function(error){
@@ -93,7 +95,7 @@
    }
    let convertPostsToAjax = function(){
       
-      $(' #post-list_container>ul>li').each(function(){
+      $(' #post-list_container1>#post-display>ul>li>').each(function(){
           let self = $(this);
       
           let deleteButton = $(' .delete-post-button', self);

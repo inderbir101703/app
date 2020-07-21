@@ -15,9 +15,7 @@ likeable=await Comment.findById(req.query.id).populate('likes');
 }
 
 //check if like already exist and findone so thst one user can like one time
-console.log(req.query.id);
-console.log(req.query.type);
-console.log(req.user._id);
+
 let existinglike=await Like.findOne({
 likeable:req.query.id,
 onModel:req.query.type,
@@ -25,13 +23,13 @@ User:req.user.id
 
 })
 //if like already exists then delete 
-console.log(existinglike);
+
 if(existinglike)
 {
     Post.findByIdAndUpdate(req.query.id,{$pull:{likes:existinglike.id}});    
  likeable.likes.pull(existinglike._id);    
 likeable.save();
-console.log("i was herasdase");
+
 existinglike.remove();
 deleted=true;
 }
