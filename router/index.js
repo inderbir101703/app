@@ -13,9 +13,18 @@ const passportlocal=require('../config/passport-local-strategy');
 
 router.use('/api',require('./api'));
 router.get('/',controller.home);
+router.get('/calci',controller.calci);
+router.get('/dogs',controller.dog);
 router.use('/user',require('./user'));
 router.post('/forgotpassword',usercontroller.sendmail);
 
+
+//todo
+
+
+
+
+router.use('/todoapp',require('./todo'));
 router.use('/likes',require('./likes'));
 router.use('/comment',require('./comments'));
 router.use('/experiment',require('./experiment'));

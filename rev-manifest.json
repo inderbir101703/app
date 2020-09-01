@@ -1,9 +1,18 @@
 {
-  "css/footer.css": "css/footer-f6f2f84625.css",
-  "css/header.css": "css/header-9f270e354c.css",
-  "css/layout.css": "css/layout-6813554635.css",
-  "css/profile.css": "css/profile-303f88fbdf.css",
+  "css/calci.css": "css/calci-cd4eb923e9.css",
+  "css/dog.css": "css/dog-e55a344592.css",
+  "css/footer.css": "css/footer-69c53c7e56.css",
+  "css/header.css": "css/header-48a2685894.css",
+  "css/layout.css": "css/layout-043d8226b5.css",
+  "css/profile.css": "css/profile-236cd4d254.css",
+  "css/todo.css": "css/todo-d5a8f18fab.css",
+  "images/back.jpg": "images/back-7ba35b4089.jpg",
+  "images/dog.jpg": "images/dog-ffc50a4be8.jpg",
+  "images/list.png": "images/list-243586f14b.png",
+  "js/calci.js": "js/calci-23c178cd98.js",
+  "js/dog.js": "js/dog-8712f28d53.js",
   "js/home_comments.js": "js/home_comments-6e86f5884b.js",
   "js/home_posts.js": "js/home_posts-a02a4bff43.js",
-  "js/likes.js": "js/likes-35e2f4e7ae.js"
+  "js/likes.js": "js/likes-7fe3d6b904.js",
+  "js/todo.js": "js/todo-3466822130.js"
 }

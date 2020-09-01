@@ -20,7 +20,8 @@
          success: function(data){
             let newpost=newPostDom(data.data.post);
                
-             $('#post-list_container1>#post-display>ul>li').prepend(newpost);
+             $('#post-list_container1>#post-display>ul').prepend(newpost);
+             $('#new-post-form').val()=" ";
              deletePost(' .delete-post-button', newpost);
             new postcomment(data.data.post._id);
             },error:function(error){
@@ -37,7 +38,7 @@
    } 
    //method to creTE A POSt in dom
    let newPostDom=function(post){
-      return $(`<li id="post-${post._id}">
+      return $(`<li id="post-${post._id}" class="rounded p-3 mb-5 bg-secondary text-white>
       <p> 
          
           <small>
@@ -51,14 +52,18 @@
        </small>
       </p>
       <div class="post-comments">
-          
-          <form action="/comment/add" method="POST">
-              <input type="text" name="comment">
-              <input type="hidden" name="post" value="${post._id}">
-              <button type="submit">comment</button>
-          </form>
-      
         
+      
+          <form action="/comment/add" method="POST" class="w-50" id="post-<%= post._id %>-comments-form" data="<%=post.id%>">
+          <div class="form-group ">
+              <input type="Text" name="comment" class="form-control"  placeholder="Type something"  required>
+            </div>
+          <input type="hidden" name="post" value="${post._id}">
+          <button type="submit" class="btn btn-primary">Comment</button>
+      </form>
+
+
+
       <div class="post-comments-list">
           <ul id="post-comments-${post._id}">
 </ul>
@@ -86,6 +91,18 @@
             success:function(data){ 
               
                 $(`#post-${data.data.post_id}`).remove();
+
+
+
+                        
+                new Noty({
+                  theme: 'relax',
+                  text: "Post Deleted",
+                  type: 'success',
+                  layout: 'topRight',
+                  timeout: 1500
+                  
+              }).show();
             },error:function(error){
                console.log(error.resposeText); 
             }

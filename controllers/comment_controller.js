@@ -38,7 +38,9 @@ module.exports.comment= async function(req,res){
                   comment:comment
                 },
                 message:"comment created"
-              });}
+              });
+            
+            }
           
           return res.redirect('/');
       

@@ -1,0 +1,219 @@
+body{
+   
+   
+    align-items: center;
+}
+header{
+    width: 100%;
+}
+#main{
+display:flex;  
+height: 60%;
+    width: 50%;
+    
+    position: relative;
+    left: 25%;
+    flex-direction:column;
+align-items: center;
+border-bottom: 2px lightgray solid;
+align-self: center;
+}
+
+
+#main input{
+border: 1px transparent solid;    
+}
+#main form{
+height:100%;  
+    width: 100%;
+    
+
+}
+#des{
+width:100%;
+         border-top:2px lightgray solid;
+    border-bottom: 2px lightgray solid;
+    display: flex;
+    flex-direction: column;
+
+    height:32%;
+}
+#des input{
+    width:98%;
+        height:30%;
+
+}
+input[type="text"], input[type="password"], input[type="date"] , textarea, select { 
+    outline: none;
+    color:slategray;
+margin-left: 5px;
+}
+.base{
+display: flex;
+    flex-direction: column;
+    align-self: center;
+    width: 50%;
+    height: 100%;
+    color:slategray;
+     border-bottom: 2px lightgray solid;
+    outline: none;
+       
+}
+select{
+    color:slategray;
+}
+option{
+    color:slategray;
+}
+.base:last-child{
+border-left: 2px lightgray solid;    
+}
+p{
+    margin-bottom: 1px;
+    margin-left: 5px;
+ 
+}
+select{
+border: 0px lightgray solid;
+    outline:none;
+}
+#inner{
+display: flex;
+width: 100%;    
+flex-direction: row;
+    height: 32%;
+   
+}
+
+#add{
+  width:50%;  
+height:32%;
+display: flex;
+justify-content: flex-end;
+align-items: center;
+}
+#add button{
+    background-color:rgb(68,68,68) ;
+ border: 2px red rgb(68,68,68);
+ border-radius: 3px;
+ margin-right: 3px;
+ color: white;   
+ height: 40%;
+ width:40%;
+}
+
+#delete{
+width:54.5% ;
+height:46%;
+position: relative;
+bottom:56%;
+left:50.5%;
+display: flex;
+align-items: center;
+
+}
+
+#delete button{
+ background-color:red ;
+ border: 2px red solid;
+ border-radius: 3px;
+ margin-left: 3px;
+ color: white;   
+ height: 40%;
+ width: 40%;
+}
+
+
+
+
+/*section below buttons for display*/
+
+#show{
+    width: 50%;
+    position: relative;
+    left: 25%;
+
+ height: 40%;
+}
+#show form{
+
+    height:100%;
+}
+
+.show-inner{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height:30%;
+  position: relative;
+  top:-50%;
+border-bottom: 2px lightgray solid;
+}
+i{
+ margin-right: 2px;   
+}
+.show-inner p{
+    margin:0px;
+    margin-top: 10px;
+    margin-left:10px ;
+   
+}
+.show-inner div{
+    
+    width:80%;
+}
+.show-inner div:last-child{
+   width:15%;
+   height: 50%;
+   display: flex;
+justify-content:center;
+}
+#check{
+    position: relative;
+    bottom:10%;
+    width: 5%;
+} 
+.category{
+    position: relative;
+right: 0%;
+width: 26%;
+ color: white;   
+ border-radius: 2px;
+}
+
+/*different colors for different types */
+#Work{
+    background-color: rebeccapurple;
+}
+#School{
+    background-color: springgreen;
+}
+#Personal{
+    background-color: brown;
+}
+#Cleaning{
+    background-color: chartreuse;
+}
+
+.underline{
+    text-decoration:line-through;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

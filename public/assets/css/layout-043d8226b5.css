@@ -1,0 +1,17 @@
+
+#car{
+    height: 70%;
+    width: 100%;
+ 
+    position: relative;
+  
+}
+body{
+    
+}
+#post-list_container1{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  
+}

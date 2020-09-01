@@ -4,6 +4,6 @@ mongoose.connect(`mongodb://localhost/${env.db}`);
 const db=mongoose.connection;
 db.on('error',console.error.bind(console,"error"));
 db.once('open',function(){
-   console.log("connected bithc"); 
+   console.log("connected to 8000"); 
 });
 module.exports=db; 

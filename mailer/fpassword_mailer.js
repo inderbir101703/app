@@ -21,7 +21,7 @@ forgot_password.create({
 let htmlString=nodemailer.renderTemplate({token:token1},'/user/reset_password.ejs');
 console.log(user.name);
 nodemailer.transporter.sendMail({
-    from:'dady',
+    from:'codeial',
     to: user.email,
     subject:"forgot password",
     html: htmlString

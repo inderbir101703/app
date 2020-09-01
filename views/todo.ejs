@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+
+        <%= title %>
+    </title>
+    <link href="<%= assetPath('css/todo.css')%>" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+
+    <div id="main">
+        TODO App
+
+        <form action="todoapp/add_work" method="post">
+
+           <div id="des"><p>DESCRIPTION</p>
+           <input type="text" placeholder="What do you need to?" name="description" required>
+            </div>
+            
+          
+            
+            <div id="inner">
+          
+           
+           <div class="base">  
+               <p>CATEGORY</p>
+            <select name="type" required>
+                <option disabled>choose a category</option>
+                <option>Personal</option>
+                <option>Work</option>
+                <option>School</option>
+                <option>Cleaning</option>
+                <option>other</option>
+            </select>    
+            </div>
+            
+            <div class="base">
+                <p>DUE DATE</p>
+            <input type="date" name="date" required>    
+            </div>
+            </div>
+            
+            <div id="add">
+            <button type="submit"><i class="fas fa-plus"></i>ADD TASK</button>
+            </div>
+
+        </form>
+    </div>
+
+        
+
+
+    <div id="show">
+        <form action="todoapp/delete" method="POST">
+        <div id="delete"><button type="submit"><i class="fas fa-trash-alt"></i>DELETE TASKS </button></div>
+        
+        <!-- itertaion for dsiplay-->
+        <% for(let i of contact_list){%>
+            <div class="show-inner">
+        <div id="check"><input type="checkbox" name="ID"  value=<%=i.id %> >  </div>   
+        <div><p> <%= i.description %></p>
+             <p><i class="far fa-calendar-alt"></i><%= i.date%></p>
+        </div>
+        
+        <div class="category" id=<%=i.type%> >
+        <p>
+        <%= i.type%>    
+        </p>    
+        </div>
+        </div>
+        <%}%> 
+        </form>
+
+    </div>
+           
+                   
+        
+         
+    
+       <script type="text/javascript" src="<%= assetPath('js/todo.js')%>"></script>
+        </body>
+</html>

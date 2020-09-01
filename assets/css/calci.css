@@ -1,0 +1,61 @@
+body{
+    display:flex;
+      justify-content:center;
+      align-items:center;
+      width:100%;
+      height:100%;
+  }
+  #label{
+      width:97.5%;
+      height:10%;
+      display:flex;
+      justify-content:center;
+      color:white;
+      background-color:black;
+      border:3px rgb(226,224,224) solid;
+      border-top:15px rgb(226,224,224) solid;
+  }
+  #contain{
+  height:15rem;
+   width:70%;   
+     
+  }
+  #display{
+      height:15%;;
+      
+      border:5px rgb(226,224,224) solid;
+  }
+  #keypad{
+      display:flex;
+      flex-direction:column;
+      height:60%;
+      justify-content:center;
+      border:5px rgb(226,224,224) solid;
+      
+  }
+  
+  .row{
+     display:flex;
+      height:20%;
+  }
+  button{
+      width:25%;
+      height:100%;
+      background-color:white;
+      border:0.5px gray solid;
+   
+  }
+  button:active{
+    
+      background-color:rgb(255,200,119);
+  }
+  
+  
+  
+  /*keypad*/
+  #zero{
+  width:49.9%;    
+  }
+  .side{
+    background-color:rgb(193,68,68);  
+  }

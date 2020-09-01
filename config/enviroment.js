@@ -52,8 +52,8 @@ const production={
     port:587,
     secure: false,
      auth:{
-       user:process.env.CODEIAL_GMAIL_USERNAME,
-       pass:process.env.CODEIAL_GMAIL_PASSWORD
+      user:'ibhinder_be17@thapar.edu',
+      pass:'wildstone'
      } 
     },
     google_client_id:process.env.CODEIAL_GOOGLE_CLIENT_ID,

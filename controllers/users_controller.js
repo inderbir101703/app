@@ -111,7 +111,7 @@ User.findOne({email: req.body.email},function(err,user){
       return;
 
      }
-     return res.redirect('/users/sign-in');
+     return res.redirect('http://localhost:8000/user/signin');
     })}
 else{ 
    return res.redirect('back'); 
@@ -124,13 +124,13 @@ else{
 module.exports.createSession = function(req, res){
     // TODO later 
     req.flash('success','Logged in succesfully');//have to create a middleware so that we can pass to page
-    return res.redirect('/');
+    return res.redirect('http://localhost:8000');
        }
 
     module.exports.signout=function(req,res){
            req.logout();
            req.flash('success','Logged out succesfully');
-           return res.redirect('/');
+           return res.redirect('http://localhost:8000');
 
     }
 

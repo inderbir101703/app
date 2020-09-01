@@ -4,6 +4,21 @@ const passport = require('passport');
 const User=require('../models/User');
 const Post =require('../models/post');
 const Comment =require('../models/comment');
+module.exports.dog=function(req,res)
+{
+
+   return res.render('dogs');
+}
+
+module.exports.calci=function(req,res)
+{
+
+   return res.render('calci');
+}
+
+
+
+
 
 module.exports.home= async function(req,res)
 {

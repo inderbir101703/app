@@ -13,7 +13,7 @@ if(!user||user.password!=req.body.password){
 return res.json(200,{
     message:"signin succesful , here is ur token keep it safe",
      data:{ //to json is convertig the ser to json and codeial is key to decrypt
-         token:jwt.sign(await user.toJSON(),env.jwt_secret,{expiresIn: '100000'})
+         token:jwt.sign(await user.toJSON(),env.jwt_secret,{expiresIn: '100000'}) //same secret to decrpyt
      }
 })
 }

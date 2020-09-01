@@ -1,12 +1,51 @@
 
-<form action="/user/create-session" method="POST">
+<head>
+  <style>
+    footer{
+    width: 100%;
+  padding: 0%;
+  position: absolute;
+  bottom: 0%;
+    margin: 0px;
+  }
+  form{
+    position: relative;
+    left:30%;
+  }
+ 
+  
+ 
+  img{
+    height: 4%;
+    width: 14%;
+    display: inline;
+  }
+  </style>
+  
+  
+  
+</head>
+<form action="/user/create-session" method="POST" class="w-25 mt-5">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="enter the email"  required>
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password"  required>
+  </div>
+  
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
 
-    <input type="email" name="email" placeholder=" enter the email" required>
-    <input type="password" name="password" placeholder="password" required>
-   <button type="submit">Sign in</button>
-  </form>
+
+
+
+
   <p>
-    <a href="forgotpassword">Forgots password</a></p>
-   <p><a href="/user/auth/google">ds signin/singup</a>
+    <a href="forgotpassword" style="position: relative; left:30%; width: 20%;">Forgots password</a></p>
+    
+   <p><a href="/user/auth/google" style="position: relative; left:33%; width: 20%;" class="btn btn-lg btn-google"><img src="https://img.icons8.com/color/16/000000/google-logo.png">&nbsp;Google Signin</a>
   </p>
   

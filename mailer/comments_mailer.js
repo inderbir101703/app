@@ -5,7 +5,7 @@ const nodemailer=require('../config/nodemailer');
 exports.newComment= (comment) => {
     let htmlString=nodemailer.renderTemplate({comment:comment},'/comments/new_comment.ejs');
 nodemailer.transporter.sendMail({
-    from:'dady',
+    from:'codeial',
     to: comment.user.email,
     subject:"new comment pubschiled",
     html: htmlString

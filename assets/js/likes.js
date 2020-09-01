@@ -33,6 +33,7 @@
        
        let converttoAjax=function(){
        $(' #post-list_container1>#post-display>ul>li').each(function(){
+          console.log("tera baal");
       let self =$(this);
       let like=$(' .like_button ',self);
        like_post(like);

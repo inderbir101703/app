@@ -21,7 +21,6 @@ router.post('/create-session',passport.authenticate(
     'local',
     {failureRedirect:'/user/signin'}),controller.createSession);
 
-router.get('/auth/google',passport.authenticate('google',{scope:['profile','email']}));
-router.get('/auth/google/callback',passport.authenticate('google',{failureRedirect:'user/signin'}),controller.createSession);
-
+router.get('/auth/google',passport.authenticate('google',{scope:['profile','email']}));//scope: info to fetch
+router.get('/auth/google/callback',passport.authenticate('google',{failureRedirect:'user/signin'}),controller.createSession); //url on which i will recieve data
 module.exports=router;

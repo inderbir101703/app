@@ -4,6 +4,7 @@ const crypto=require('crypto');
 const User=require('../models/User');
 const env =require('./enviroment');
 const { google_client_Secret } = require('./enviroment');
+console.log(env.google_callbackURL)
 //tell passport to use googlestrategy
 passport.use(new googleStratrgy({
     
@@ -23,6 +24,7 @@ function(accessToken,refresh,profile,done){//if access token expires we use the 
     console.log(profile);
     if(user){
         return done(null,user);
+
     }
     else{
         //if not found , create the user set it as req.user

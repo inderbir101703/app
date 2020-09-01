@@ -1,16 +1,62 @@
-<header>
-   <h3>CODEIAL</h3>
-   <header>
-    <ul>
-        <%if(locals.user){%>
-        <li><%=user.name%></li>
-        <li><%=user.email%></li>
-        <li><a href="user/signout">Sign out</a></li>
-    <%}
-    else{%>
-      <li><a href="user/signup">sign up</a></li>
-      <li><a href="./user/signin">sign in</a></li>
-    </ul>
-    <%}%>
+
+
+
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+      
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="http://localhost:8000/">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost:8000/todoapp">To Do List</a>
+          </li>
+           
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost:8000/calci">Calculate</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost:8000/dogs">Meet Dogs</a>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link" href="http://theworldclass.club/resume/">About Me</a>
+          </li>
+        </ul>
+        
+
+        
+          <%if(locals.user){%>
+           <p class="btn btn-outline-success my-2 my-sm-0 mr-sm-2"><%=user.name%></p>
+           <p class="btn btn-outline-success my-2 my-sm-0 mr-sm-2"><%=user.email%></p>
+           <a href="user/signout" class="btn btn-outline-success my-2 my-sm-0 mr-sm-2">Sign Out</a>
+          
+          
+          
+      <%}
+      else{%>
+       
+       
+      
+     
+
+          
+          <a href="http://localhost:8000/user/signin" class="btn btn-outline-success my-2 my-sm-0 mr-sm-2">Sign In</a>
+          <a href="http://localhost:8000/user/signup" class="btn btn-outline-success my-2 my-sm-0" type="submit">Sign Up</a>
+          <%}%>
+      </div>
+    </nav>
+    
+
+
+
+
+
+  
     </header> 
 </header>
